@@ -1,0 +1,104 @@
+{
+  "faq": [
+    {
+      "categoria": "Devoluciones",
+      "pregunta": "¿Cuál es el plazo para devolver un producto?",
+      "respuesta": "Puedes solicitar una devolución dentro de los 30 días naturales desde la fecha de entrega."
+    },
+    {
+      "categoria": "Devoluciones",
+      "pregunta": "¿Qué productos no se pueden devolver?",
+      "respuesta": "No se aceptan devoluciones de productos perecederos, productos de higiene abiertos, artículos personalizados ni contenido digital descargado."
+    },
+    {
+      "categoria": "Devoluciones",
+      "pregunta": "¿Quién paga el envío de la devolución?",
+      "respuesta": "EcoMarket cubre el envío si el producto es defectuoso o incorrecto. En devoluciones por decisión del cliente, se aplica una tarifa plana."
+    },
+    {
+      "categoria": "Devoluciones",
+      "pregunta": "¿Puedo cambiar un producto en lugar de solicitar un reembolso?",
+      "respuesta": "Sí, puedes solicitar un cambio sin coste adicional si el nuevo producto cumple las condiciones de precio."
+    },
+    {
+      "categoria": "Reembolsos",
+      "pregunta": "¿Cuánto tarda el reembolso?",
+      "respuesta": "El reembolso se procesa en 5 a 7 días hábiles después de recibir el producto en nuestro almacén."
+    },
+    {
+      "categoria": "Reembolsos",
+      "pregunta": "¿En qué método recibiré el reembolso?",
+      "respuesta": "El reembolso se realiza al mismo método de pago utilizado en la compra."
+    },
+    {
+      "categoria": "Reembolsos",
+      "pregunta": "¿Puedo recibir el reembolso como crédito en tienda?",
+      "respuesta": "Sí, puedes elegir crédito en tienda y recibirás un 5% adicional como bonificación."
+    },
+    {
+      "categoria": "Pedidos",
+      "pregunta": "¿Cómo puedo rastrear mi pedido?",
+      "respuesta": "Puedes usar el enlace de seguimiento (tracking_url) enviado a tu correo electrónico."
+    },
+    {
+      "categoria": "Pedidos",
+      "pregunta": "¿Qué significa que mi pedido está en tránsito?",
+      "respuesta": "Significa que tu pedido ya fue despachado y está en camino hacia la dirección de entrega."
+    },
+    {
+      "categoria": "Pedidos",
+      "pregunta": "¿Qué hago si mi pedido está retrasado?",
+      "respuesta": "Puedes revisar el estado en el tracking o contactar con soporte para más información."
+    },
+    {
+      "categoria": "Pedidos",
+      "pregunta": "¿Puedo cancelar mi pedido?",
+      "respuesta": "Sí, puedes cancelarlo antes de que sea enviado. Después del envío, deberás solicitar una devolución."
+    },
+    {
+      "categoria": "Pedidos",
+      "pregunta": "¿Qué pasa si no completo el pago?",
+      "respuesta": "El pedido será cancelado automáticamente si el pago no se confirma en el tiempo establecido."
+    },
+    {
+      "categoria": "Envíos",
+      "pregunta": "¿Cuánto tarda la entrega?",
+      "respuesta": "El tiempo de entrega depende del producto y la ubicación, generalmente entre 2 y 5 días hábiles."
+    },
+    {
+      "categoria": "Envíos",
+      "pregunta": "¿Qué transportistas utilizan?",
+      "respuesta": "Trabajamos con DHL, Correos, MRW, SEUR y FedEx."
+    },
+    {
+      "categoria": "Envíos",
+      "pregunta": "¿Qué pasa si no estoy en casa al momento de la entrega?",
+      "respuesta": "El transportista realizará un segundo intento o dejará instrucciones para recoger el paquete."
+    },
+    {
+      "categoria": "Problemas",
+      "pregunta": "¿Qué hago si recibo un producto dañado?",
+      "respuesta": "Debes reportarlo y podrás solicitar reembolso o reemplazo sin coste adicional."
+    },
+    {
+      "categoria": "Problemas",
+      "pregunta": "¿Qué hago si recibo un producto incorrecto?",
+      "respuesta": "Puedes solicitar un cambio o reembolso completo sin coste adicional."
+    },
+    {
+      "categoria": "Cuenta",
+      "pregunta": "¿Necesito una cuenta para comprar?",
+      "respuesta": "No es obligatorio, pero tener una cuenta facilita el seguimiento de pedidos."
+    },
+    {
+      "categoria": "Cuenta",
+      "pregunta": "¿Cómo contacto con atención al cliente?",
+      "respuesta": "Puedes escribir a devoluciones@ecomarket.com o llamar al 900-ECO-MKT."
+    },
+    {
+      "categoria": "Sostenibilidad",
+      "pregunta": "¿Los productos son realmente ecológicos?",
+      "respuesta": "Sí, todos nuestros productos cumplen con estándares de sostenibilidad y bajo impacto ambiental."
+    }
+  ]
+}
