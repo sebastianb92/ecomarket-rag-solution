@@ -40,7 +40,6 @@ La elección de `multilingual-e5-large` responde a tres factores determinantes p
 
 - **Precisión:** Los vectores de 1024 dimensiones, normalizados (`normalize_embeddings=True`), permiten calcular similitud coseno de forma eficiente y con mayor resolución semántica que modelos de 384 o 768 dimensiones.
 
-```
 
 ---
 
