@@ -1,4 +1,4 @@
-# EcoMarket AI Support — Taller Práctico #1
+# EcoMarket AI Support — Taller Práctico #2
 
 Sistema de atención al cliente basado en **IA Generativa** para EcoMarket, una empresa de e-commerce sostenible.
 
@@ -13,24 +13,20 @@ Este repositorio implementa la solución propuesta en el Taller Práctico #1, de
 ## Estructura del Repositorio
 
 ```
-ecomarket-solution/
+ecomarket-rag-solution/
 ├── README.md
 ├── requirements.txt
 ├── docs/
-│   ├── fase1_selección_de_modelo.md
+│   ├── fase1_selección_de_modelo.md 
 │   └── fase2_fortalezas_limitaciones_riesgos.md
 │
-├── prompts/
-│   ├── order_status_prompt.txt
-│   ├── return_policy_prompt.txt
-│   └── system_prompt.txt
-│
 ├── data/
-│   ├── orders_database.txt
-│   └── policies.txt
+│   ├── FAQ.json
+│   ├── pedidos_ecomarket.xlsx
+│   └── POLÍTICA DE DEVOLUCIONES.pdf
 │
 ├── notebooks/
-│   └── EcoMarket_AI_Solution.ipynb
+│   └── EcoMarket_AI_RAG_Solution.ipynb
 
 ```
 
