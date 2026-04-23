@@ -29,7 +29,6 @@ Para EcoMarket se seleccionó el modelo **multilingual-e5-large** de Hugging Fac
 | **Costo** | Gratuito (open-source, corre en GPU/CPU local) | Pago por token (~$0.02 / 1M tokens) | Gratuito (open-source) |
 | **Precisión en recuperación** | Estado del arte en benchmarks MTEB para español | Alta, pero dependiente de API externa | Moderada — menos preciso en consultas informacionales |
 | **Dependencia externa** | Ninguna — corre localmente (Colab / servidor) | Requiere API key y conexión a internet | Ninguna — corre localmente |
-| **Uso en el proyecto** | ✅ Implementado | — | — |
 
 ### Justificación
 
@@ -41,12 +40,6 @@ La elección de `multilingual-e5-large` responde a tres factores determinantes p
 
 - **Precisión:** Los vectores de 1024 dimensiones, normalizados (`normalize_embeddings=True`), permiten calcular similitud coseno de forma eficiente y con mayor resolución semántica que modelos de 384 o 768 dimensiones.
 
-```python
-embeddings = HuggingFaceEmbeddings(
-    model_name="intfloat/multilingual-e5-large",
-    model_kwargs={"device": "cuda"},   # GPU en Colab
-    encode_kwargs={"normalize_embeddings": True}
-)
 ```
 
 ---
@@ -66,7 +59,7 @@ La base de datos vectorial almacena los embeddings generados y desde donde se re
 | **Integración LangChain** | ✅ `langchain-chroma` nativo | ✅ `langchain-community` | ✅ `langchain-pinecone` | ✅ `langchain-weaviate` |
 | **Filtros por metadatos** | ✅ Incluidos nativamente | ⚠️ Sin soporte nativo | ✅ Filtros avanzados | ✅ Búsqueda híbrida (BM25 + vectores) |
 | **Facilidad de uso** | ⭐⭐⭐⭐⭐ setup en 3 líneas | ⭐⭐⭐ requiere más configuración | ⭐⭐⭐⭐ requiere cuenta y API key | ⭐⭐⭐ configuración más compleja |
-| **Uso en el proyecto** | ✅ Implementado | — | — | — |
+
 
 ### Justificación de ChromaDB para EcoMarket
 
@@ -80,13 +73,6 @@ La base de datos vectorial almacena los embeddings generados y desde donde se re
 
 5. **Costo cero:** Apropiado para un entorno académico y de prototipado. Si el proyecto escala a producción, ChromaDB puede reemplazarse por Pinecone o Weaviate con cambios mínimos en el código gracias a la abstracción de LangChain.
 
-```python
-vector_store = Chroma(
-    collection_name="example_collection",
-    embedding_function=embeddings,
-    persist_directory="./chroma_langchain_db",
-)
-```
 
 ---
 
@@ -110,19 +96,6 @@ Para cubrir los dos flujos de atención al cliente (estado de pedidos y devoluci
 
 La combinación de tres formatos distintos responde a una realidad frecuente en entornos empresariales: la información no está centralizada en un solo sistema. Los pedidos viven en un ERP exportado a Excel, las políticas existen como documentos PDF para uso legal, y las FAQ se mantienen en JSON para integrarse con CMS. El sistema RAG abstrae estos formatos mediante loaders especializados, unificándolos en una colección vectorial coherente.
 
-```python
-# Cada fila del Excel se convierte en un string con todos sus campos
-df["contenido"] = df.astype(str).agg(" | ".join, axis=1)
-loader = DataFrameLoader(df, page_content_column="contenido")
-# Resultado: "ECO-12345 | En tránsito | Ana García | Botella..."
-
-# El JSON se extrae estructuradamente con jq
-loader = JSONLoader(
-    file_path="data/FAQ.json",
-    jq_schema='.faq[] | "Categoría: \(.categoria)\nPregunta: \(.pregunta)\nRespuesta: \(.respuesta)"',
-    text_content=True
-)
-```
 
 ---
 
@@ -143,13 +116,6 @@ La segmentación consiste en dividir los documentos en fragmentos más pequeños
 
 Para EcoMarket se utilizó `RecursiveCharacterTextSplitter` de LangChain con los siguientes parámetros:
 
-```python
-text_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=1000,     # Máximo de caracteres por chunk
-    chunk_overlap=200,   # Solapamiento entre chunks consecutivos
-    add_start_index=True # Trazabilidad: índice en el documento original
-)
-```
 
 La elección de estos parámetros responde a tres justificaciones:
 
@@ -177,19 +143,6 @@ La indexación es el proceso de convertir los chunks en vectores numéricos y al
 | **6. Almacenamiento** | Inserción de los vectores + texto + metadatos en ChromaDB. Se genera un ID único por chunk. | `Chroma.add_documents()` |
 | **7. Persistencia** | ChromaDB escribe el índice en disco para reutilización sin re-indexar. | ChromaDB (automático) |
 
-```python
-# 1-2. Cargar y unificar
-docs = docs_excel + docs_pdf + docs_json
-
-# 3. Fragmentar
-all_splits = text_splitter.split_documents(docs)
-
-# 4. Limpiar metadatos complejos
-all_splits = filter_complex_metadata(all_splits)
-
-# 5-6-7. Vectorizar y almacenar (ChromaDB llama al modelo de embeddings internamente)
-document_ids = vector_store.add_documents(documents=all_splits)
-```
 
 ### Flujo de datos por fuente
 
@@ -202,7 +155,7 @@ document_ids = vector_store.add_documents(documents=all_splits)
 
 ---
 
-## Síntesis de decisiones de arquitectura
+## Decisiones en la arquitectura final
 
 | Componente | Decisión | Razón principal |
 |---|---|---|

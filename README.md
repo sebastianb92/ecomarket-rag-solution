@@ -46,7 +46,7 @@ ecomarket-rag-solution/
 │   └── FAQ.json                      # Preguntas frecuentes estructuradas
 │
 ├── docs/
-│   └──
+│   └── Fase_1_y_2_EcoMarket.md
 │
 ├── notebooks/
 │   └── EcoMarket_AI_RAG_Solution.ipynb   # Notebook principal
