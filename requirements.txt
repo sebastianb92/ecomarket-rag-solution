@@ -15,5 +15,7 @@ tiktoken
 pandas
 pypdf
 gradio
-colab-xterm
 jq
+python-dotenv
+openpyxl
+langchain-classic
